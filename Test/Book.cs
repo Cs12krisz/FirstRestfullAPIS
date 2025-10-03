@@ -1,4 +1,6 @@
-﻿namespace Test
+﻿using MySql.Data.Types;
+
+namespace Test
 {
     public class Book
     {
