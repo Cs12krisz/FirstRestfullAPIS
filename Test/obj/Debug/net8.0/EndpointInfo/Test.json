@@ -41,6 +41,35 @@
             }
           }
         }
+      },
+      "post": {
+        "tags": [
+          "Books"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Book"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Book"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Book"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/books/getById": {
@@ -101,8 +130,58 @@
             "nullable": true
           },
           "releaseDate": {
+            "$ref": "#/components/schemas/MySqlDateTime"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MySqlDateTime": {
+        "type": "object",
+        "properties": {
+          "isValidDateTime": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "month": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "day": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hour": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "minute": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "second": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "millisecond": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "microsecond": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isNull": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "value": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "readOnly": true
           }
         },
         "additionalProperties": false

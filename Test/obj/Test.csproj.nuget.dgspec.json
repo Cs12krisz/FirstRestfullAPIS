@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Csiger Krisztián\\source\\repos\\Apis\\Test\\Test\\Test.csproj": {}
+    "C:\\Users\\CsKrisz\\Desktop\\First_API\\Test\\Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Csiger Krisztián\\source\\repos\\Apis\\Test\\Test\\Test.csproj": {
+    "C:\\Users\\CsKrisz\\Desktop\\First_API\\Test\\Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Csiger Krisztián\\source\\repos\\Apis\\Test\\Test\\Test.csproj",
+        "projectUniqueName": "C:\\Users\\CsKrisz\\Desktop\\First_API\\Test\\Test.csproj",
         "projectName": "Test",
-        "projectPath": "C:\\Users\\Csiger Krisztián\\source\\repos\\Apis\\Test\\Test\\Test.csproj",
-        "packagesPath": "C:\\Users\\Csiger Krisztián\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Csiger Krisztián\\source\\repos\\Apis\\Test\\Test\\obj\\",
+        "projectPath": "C:\\Users\\CsKrisz\\Desktop\\First_API\\Test\\Test.csproj",
+        "packagesPath": "C:\\Users\\CsKrisz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\CsKrisz\\Desktop\\First_API\\Test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Csiger Krisztián\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\CsKrisz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

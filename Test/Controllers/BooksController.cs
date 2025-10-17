@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 using MySql.Data.Types;
+using System.Data;
 
 namespace Test.Controllers
 {
@@ -28,7 +29,7 @@ namespace Test.Controllers
                     Id = dr.GetInt32(0),
                     Title = dr.GetString(1),
                     Author = dr.GetString(2),
-                    releaseDate = dr.GetDateTime(3),
+                    releaseDate = dr.GetMySqlDateTime(3),
                 };
 
                 books.Add(book);
@@ -46,7 +47,7 @@ namespace Test.Controllers
 
             string sql = "SELECT * FROM books WHERE id = @id";
             MySqlCommand cmd = new MySqlCommand(sql, database.Connection);
-            cmd.Parameters.Add("@id", id);
+            cmd.Parameters.AddWithValue("@id", id);
 
             MySqlDataReader dr = cmd.ExecuteReader();
 
@@ -57,7 +58,7 @@ namespace Test.Controllers
               Id = dr.GetInt32(0),
               Title = dr.GetString(1),
               Author = dr.GetString(2),
-              releaseDate = dr.GetDateTime(3),
+              releaseDate = dr.GetMySqlDateTime(3),
           };
 
                
@@ -65,6 +66,31 @@ namespace Test.Controllers
             database.Connection.Close();
             return book;
 
+        }
+
+        [HttpPost]
+        public object AddNewRecord(Book book)
+        {
+            database.Connection.Open();
+
+            string sql = "INSERT INTO `books`(`title`, `author`, `releaseDate`) VALUES (@title, @author, @releaseDate)";
+
+            MySqlCommand cmd = new MySqlCommand(sql, database.Connection);
+
+            cmd.Parameters.AddWithValue("@title", book.Title);
+            cmd.Parameters.AddWithValue("@author", book.Author);
+            cmd.Parameters.AddWithValue("@releaseDate", book.releaseDate);
+
+            cmd.ExecuteNonQuery();
+
+            database.Connection.Close();
+            return new { message = "Sikeres hozzáadás" };
+        }
+
+        [HttpDelete]
+        public object DeleteRecord(int id) 
+        {
+            return new { message = "Sikeres törlés" };
         }
     }
 }

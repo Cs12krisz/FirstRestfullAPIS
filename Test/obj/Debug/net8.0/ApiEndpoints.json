@@ -21,6 +21,22 @@
   },
   {
     "ContainingType": "Test.Controllers.BooksController",
+    "Method": "AddNewRecord",
+    "RelativePath": "books",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "book",
+        "Type": "Test.Book",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Test.Controllers.BooksController",
     "Method": "getById",
     "RelativePath": "books/getById",
     "HttpMethod": "GET",
