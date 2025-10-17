@@ -29,7 +29,7 @@
     "Parameters": [
       {
         "Name": "book",
-        "Type": "Test.Book",
+        "Type": "Test.CreateBookDto",
         "IsRequired": true
       }
     ],
@@ -47,6 +47,27 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Test.Controllers.BooksController",
+    "Method": "UpdateRecord",
+    "RelativePath": "books",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "updatedBook",
+        "Type": "Test.UpdateBookDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

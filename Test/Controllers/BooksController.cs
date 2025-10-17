@@ -52,8 +52,8 @@ namespace Test.Controllers
             MySqlDataReader dr = cmd.ExecuteReader();
 
 
-           dr.Read();
-          var book = new Book
+          dr.Read();
+          Book book = new Book
           { 
               Id = dr.GetInt32(0),
               Title = dr.GetString(1),
@@ -69,7 +69,7 @@ namespace Test.Controllers
         }
 
         [HttpPost]
-        public object AddNewRecord(Book book)
+        public object AddNewRecord(CreateBookDto book)
         {
             database.Connection.Open();
 
@@ -79,7 +79,7 @@ namespace Test.Controllers
 
             cmd.Parameters.AddWithValue("@title", book.Title);
             cmd.Parameters.AddWithValue("@author", book.Author);
-            cmd.Parameters.AddWithValue("@releaseDate", book.releaseDate);
+            cmd.Parameters.AddWithValue("@releaseDate", book.ReleaseDate);
 
             cmd.ExecuteNonQuery();
 
@@ -103,5 +103,27 @@ namespace Test.Controllers
             database.Connection.Close();
             return new { message = "Sikeres törlés" };
         }
+
+        [HttpPut]
+        public object UpdateRecord(int id, UpdateBookDto updatedBook)
+        {
+            database.Connection.Open();
+
+            string sql = "UPDATE books SET title = @title, author = @author, releaseDate = @date WHERE id = @id";
+
+            MySqlCommand cmd = new MySqlCommand(sql, database.Connection);
+
+            cmd.Parameters.AddWithValue("@title", updatedBook.Title);
+            cmd.Parameters.AddWithValue("@author", updatedBook.Author);
+            cmd.Parameters.AddWithValue("@date", updatedBook.ReleaseDate);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            cmd.ExecuteNonQuery();
+
+
+            database.Connection.Close();
+            return new { message = "Sikeres frissítés", result = updatedBook };
+        }
+
     }
 }
