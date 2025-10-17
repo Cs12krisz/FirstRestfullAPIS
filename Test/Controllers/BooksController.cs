@@ -90,6 +90,17 @@ namespace Test.Controllers
         [HttpDelete]
         public object DeleteRecord(int id) 
         {
+            database.Connection.Open();
+
+            string sql = "DELETE FROM books WHERE id = @id";
+
+            MySqlCommand cmd = new MySqlCommand(sql, database.Connection);
+
+            cmd.Parameters.AddWithValue("@id", id);
+
+            cmd.ExecuteNonQuery();
+
+            database.Connection.Close();
             return new { message = "Sikeres törlés" };
         }
     }

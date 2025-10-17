@@ -37,6 +37,22 @@
   },
   {
     "ContainingType": "Test.Controllers.BooksController",
+    "Method": "DeleteRecord",
+    "RelativePath": "books",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Test.Controllers.BooksController",
     "Method": "getById",
     "RelativePath": "books/getById",
     "HttpMethod": "GET",
